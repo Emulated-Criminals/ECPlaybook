@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Custom color scheme for QuickRef */
+  --background-1: #1A1A1A;
+  --background-2: #2A2A2A;
+  --primary: #875ae0;
+  --destructive-red: #F42C44;
+  --accent-green: #69B131;
+  
+  /* Theme tokens */
+  --background: var(--background-1);
+  --foreground: #ffffff;
+  --card: var(--background-2);
+  --card-foreground: #ffffff;
+  --popover: var(--background-2);
+  --popover-foreground: #ffffff;
+  --primary: var(--primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--background-2);
+  --secondary-foreground: #ffffff;
+  --muted: #3A3A3A;
+  --muted-foreground: #a0a0a0;
+  --accent: var(--accent-green);
+  --accent-foreground: #ffffff;
+  --destructive: var(--destructive-red);
+  --destructive-foreground: #ffffff;
+  --border: #3A3A3A;
+  --input: #3A3A3A;
+  --ring: var(--primary);
+  --radius: 0.5rem;
+  
+  /* Additional utility colors */
+  --code-bg: #2d2d2d;
+  --card-footer: #252525;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background-2);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+}
+
+/* Custom inline code styling */
+.inline-code {
+  padding: 0.125rem 0.375rem;
+  background-color: var(--code-bg);
+  border-radius: 0.25rem;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* Markdown table styling */
+.markdown-table {
+  width: 100%;
+  font-size: 0.875rem;
+  margin: 0.75rem 0;
+}
+
+.markdown-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.markdown-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.markdown-table tbody tr {
+  border-bottom: 1px solid rgba(58, 58, 58, 0.5);
+}
+
+.markdown-table td {
+  padding: 0.5rem 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* ECRP-style gradient borders */
+.gradient-border-top {
+  position: relative;
+}
+
+.gradient-border-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #875ae0, #F42C44);
+}
+
+.gradient-border-bottom {
+  position: relative;
+}
+
+.gradient-border-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #875ae0, #F42C44);
+}
+
+/* Purple accent borders for cards */
+.purple-border {
+  border: 1px solid rgba(135, 90, 224, 0.2);
+}
+
+/* Gradient underline for section headings */
+.heading-gradient-line {
+  position: relative;
+}
+
+.heading-gradient-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(to right, #875ae0, #F42C44);
+  border-radius: 999px;
+}
+
+/* Card separator line */
+.card-separator {
+  height: 1px;
+  background: rgba(135, 90, 224, 0.5);
+}
+
+/* Cross/grid pattern background */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(135, 90, 224, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(135, 90, 224, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Purple glow from bottom left */
+.purple-glow {
+  position: relative;
+}
+
+.purple-glow::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at bottom left, rgba(135, 90, 224, 0.15), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Syntax highlighting styles */
+.syntax-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.syntax-keyword {
+  color: #c586c0;
+}
+
+.syntax-string {
+  color: #ce9178;
+}
+
+.syntax-variable {
+  color: #9cdcfe;
+}
+
+.syntax-number {
+  color: #b5cea8;
+}
+
+.syntax-boolean {
+  color: #569cd6;
+}
+
+.syntax-builtin {
+  color: #4ec9b0;
+}
+
+.syntax-selector {
+  color: #d7ba7d;
+}
+
+.syntax-property {
+  color: #9cdcfe;
+}
+
+.syntax-color {
+  color: #ce9178;
+}
+
+/* Search highlight styling */
+mark.search-highlight {
+  background-color: rgba(135, 90, 224, 0.35);
+  color: #ffffff;
+  border-radius: 0.25rem;
+  padding: 0 0.15rem;
+}

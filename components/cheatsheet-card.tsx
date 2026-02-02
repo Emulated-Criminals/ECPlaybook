@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { registerNmapLanguage } from '@/lib/nmap-language'
 import { registerMsfLanguage } from '@/lib/msf-language'
+import { registerMkatzLanguage } from '@/lib/mkatz-language'
 
 interface CheatsheetCardProps {
   card: CardType
@@ -55,6 +56,7 @@ const syntaxTheme = {
 
 registerNmapLanguage()
 registerMsfLanguage()
+registerMkatzLanguage()
 
 export function CheatsheetCard({ card }: CheatsheetCardProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -149,10 +151,19 @@ export function CheatsheetCard({ card }: CheatsheetCardProps) {
     html = html.replace(/(?:^|\n)\s*\|(.+)\|\r?\n\s*\|[-:\s|]+\|\r?\n((?:\s*\|.+\|\r?\n?)*)/g, (match) => {
       const lines = match.trim().split(/\r?\n/)
       const sanitizeRow = (row: string) => row.replace(/\\\|/g, '__ESCAPED_PIPE__')
+      const shortcutHeaderPattern = /\{\.\s*shortcut[s]?\s*\}/i
+      const shortcutColumns: number[] = []
       const headers = sanitizeRow(lines[0])
         .split('|')
         .filter(h => h.trim())
-        .map(h => h.replace(/__ESCAPED_PIPE__/g, '|').trim())
+        .map((h, index) => {
+          let header = h.replace(/__ESCAPED_PIPE__/g, '|').trim()
+          if (shortcutHeaderPattern.test(header)) {
+            shortcutColumns.push(index)
+            header = header.replace(shortcutHeaderPattern, '').trim()
+          }
+          return header
+        })
       const rows = lines.slice(2).map(row =>
         sanitizeRow(row)
           .split('|')
@@ -167,13 +178,62 @@ export function CheatsheetCard({ card }: CheatsheetCardProps) {
       table += '</tr></thead><tbody>'
       rows.forEach(row => {
         table += '<tr class="border-b border-border/50">'
-        row.forEach(cell => {
-          table += `<td class="py-2 px-3 text-muted-foreground">${cell}</td>`
+        row.forEach((cell, cellIndex) => {
+          let content = cell
+          if (shortcutColumns.includes(cellIndex)) {
+            const escapedBackslash = '__ESCAPED_BACKSLASH__'
+            const escapedLBracket = '__ESCAPED_LBRACKET__'
+            const escapedRBracket = '__ESCAPED_RBRACKET__'
+            content = content
+              .replace(/\\\\/g, escapedBackslash)
+              .replace(/\\\[/g, escapedLBracket)
+              .replace(/\\\]/g, escapedRBracket)
+            content = content.replace(/\[([^\[\]]+)\]/g, (_match, key) => {
+              const glyphKeys = new Set(['⇧', '⌘', '⌥', '⌃', '⌫', '⎋', '↩', '⏎'])
+              const trimmedKey = String(key).trim()
+              if (glyphKeys.has(trimmedKey)) {
+                return `<kbd class="markdown-kbd"><span class="markdown-kbd-glyph">${trimmedKey}</span></kbd>`
+              }
+              return `<kbd class="markdown-kbd">${trimmedKey}</kbd>`
+            })
+            content = content
+              .replace(new RegExp(escapedLBracket, 'g'), '[')
+              .replace(new RegExp(escapedRBracket, 'g'), ']')
+              .replace(new RegExp(escapedBackslash, 'g'), '\\')
+          }
+          table += `<td class="py-2 px-3 text-muted-foreground">${content}</td>`
         })
         table += '</tr>'
       })
       table += '</tbody></table>'
       return table
+    })
+
+    const renderAdmonition = (kind: string, body: string) => {
+      const normalizedKind = kind.toLowerCase()
+      const titles: Record<string, string> = {
+        note: 'Note',
+        tip: 'Tip',
+        important: 'Important',
+        warning: 'Warning',
+        caution: 'Caution',
+      }
+      const icons: Record<string, string> = {
+        note: 'ⓘ',
+        tip: '💡',
+        important: '❗',
+        warning: '⚠',
+        caution: '⛔',
+      }
+      const title = titles[normalizedKind] || kind
+      const icon = icons[normalizedKind] || 'ⓘ'
+      const formatted = formatInline(body.trim()).replace(/\n/g, '<br />')
+      return `<div class="admonition admonition--${normalizedKind}"><div class="admonition-header"><span class="admonition-icon">${icon}</span><span class="admonition-title">${title}</span></div><div class="admonition-body">${formatted}</div></div>`
+    }
+
+    // Admonitions: [!NOTE]...[/!NOTE]
+    html = html.replace(/\[!([A-Z]+)\]([\s\S]*?)\[!\1\]/g, (_match, kind, body) => {
+      return renderAdmonition(String(kind), String(body))
     })
 
     // Inline formatting (links, inline code, bold)
@@ -257,7 +317,7 @@ export function CheatsheetCard({ card }: CheatsheetCardProps) {
           if (trimmed.startsWith('@@CODEBLOCK:')) {
             return trimmed
           }
-          if (trimmed.startsWith('<table') || trimmed.startsWith('<code') || trimmed.startsWith('<ul')) {
+          if (trimmed.startsWith('<table') || trimmed.startsWith('<code') || trimmed.startsWith('<ul') || trimmed.startsWith('<div class="admonition')) {
             return trimmed
           }
           const withBreaks = trimmed.replace(/\n/g, '<br />')
@@ -265,7 +325,7 @@ export function CheatsheetCard({ card }: CheatsheetCardProps) {
         }).filter(Boolean)
       }
 
-      if (part.startsWith('<table') || part.startsWith('<code') || part.startsWith('<ul')) {
+      if (part.startsWith('<table') || part.startsWith('<code') || part.startsWith('<ul') || part.startsWith('<div class="admonition')) {
         return [part]
       }
 

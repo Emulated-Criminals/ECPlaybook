@@ -2,6 +2,7 @@
 title: Lateral Movement
 date: 2026-01-22
 background: bg-[#F59E0B]
+icon: transfer.svg
 tags:
   - lateral movement
   - red teaming

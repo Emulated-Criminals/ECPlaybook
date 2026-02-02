@@ -1,7 +1,7 @@
 ---
 title: Nmap
 date: 2025-06-17
-background: bg-[#2EC4B6]
+background: bg-[#2AA35B]
 iconSize: 40
 tags:
   - network

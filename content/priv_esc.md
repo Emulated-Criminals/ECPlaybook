@@ -25,7 +25,7 @@ C++ Code for using a token that belongs to another process.
 
 Works by setting the `PID_TO_IMPERSONATE` variable to a process ID that you have access to.
 
-**NOTE: MUST HAVE IMPERSONATE ACCESS TO THE PID. WILL NOT WORK IF USER DOES NOT HAVE INITAL PERMS TO THE PID**
+[!NOTE] MUST HAVE IMPERSONATE ACCESS TO THE PID. WILL NOT WORK IF USER DOES NOT HAVE INITAL PERMS TO THE PID [!NOTE]
 
 
 ```cpp

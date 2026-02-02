@@ -1,8 +1,9 @@
 ---
 title: Enumeration and Discovery
 date: 2026-01-22
-background: bg-[#22D3EE]
-
+background: bg-[#1B5FBF]
+icon: info.svg
+iconSize: 30
 tags:
 - hacking
 - enumeration

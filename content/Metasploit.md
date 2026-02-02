@@ -2,6 +2,7 @@
 title: Metasploit
 date: 2026-01-22
 background: bg-[#2EC4B6]
+iconSize: 30
 tags:
   - hacking
   - c2

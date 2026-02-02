@@ -1,7 +1,7 @@
 ---
 title: Exfiltration
 date: 2026-01-22
-background: bg-[#D946EF]
+background: bg-[#0C8F88]
 tags:
   - exfiltration
   - red teaming

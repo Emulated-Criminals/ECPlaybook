@@ -21,6 +21,46 @@ const resolveContentDirectory = () => {
   return fromCwd
 }
 
+const CATEGORY_PRIORITY_FILE = 'category-priority.json'
+
+type CategoryPriorityMap = Record<string, number>
+
+const resolveCategoryPriorityPath = () => {
+  const fromCwd = path.join(process.cwd(), CATEGORY_PRIORITY_FILE)
+  if (fs.existsSync(fromCwd)) {
+    return fromCwd
+  }
+  const fromContent = path.join(resolveContentDirectory(), CATEGORY_PRIORITY_FILE)
+  if (fs.existsSync(fromContent)) {
+    return fromContent
+  }
+  return null
+}
+
+function loadCategoryPriorities(): CategoryPriorityMap {
+  const priorityPath = resolveCategoryPriorityPath()
+  if (!priorityPath) {
+    return {}
+  }
+  try {
+    const raw = fs.readFileSync(priorityPath, 'utf8')
+    const data = JSON.parse(raw)
+    if (!data || typeof data !== 'object') {
+      return {}
+    }
+    const result: CategoryPriorityMap = {}
+    for (const [key, value] of Object.entries(data as Record<string, unknown>)) {
+      if (typeof value === 'number' && Number.isFinite(value)) {
+        result[key] = value
+      }
+    }
+    return result
+  } catch (error) {
+    console.warn('[cheatsheets] Failed to load category priorities:', error)
+    return {}
+  }
+}
+
 export interface CheatsheetMetadata {
   title: string
   date: string
@@ -96,6 +136,14 @@ export function getAllCategories(): string[] {
   allCheatsheets.forEach(sheet => {
     sheet.metadata.categories.forEach(cat => categories.add(cat))
   })
-  
-  return Array.from(categories)
+
+  const priorities = loadCategoryPriorities()
+  return Array.from(categories).sort((a, b) => {
+    const aPriority = priorities[a] ?? Number.POSITIVE_INFINITY
+    const bPriority = priorities[b] ?? Number.POSITIVE_INFINITY
+    if (aPriority !== bPriority) {
+      return aPriority - bPriority
+    }
+    return a.localeCompare(b, undefined, { sensitivity: 'base' })
+  })
 }

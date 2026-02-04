@@ -26,8 +26,6 @@ This is a quick cheat sheet to getting started with regular expressions.
 - [Regex in PHP](#regex-in-php)
 - [Regex in Java](#regex-in-java)
 - [Regex in MySQL](#regex-in-mysql)
-- [Regex in Vim](/vim#search-and-replace)
-- [Regex in Emacs](/emacs#search)
 - [Online regex tester](https://regex101.com/)
 
 
@@ -276,7 +274,7 @@ result.
 | `(*NO_AUTO_POSSESS)`   | Regex engine modifier |
 | `(*NO_START_OPT)`      | Regex engine modifier |
 
-## Regex examples{.cols-3}
+## Regex examples
 
 ### Characters
 
@@ -289,7 +287,7 @@ result.
 | `\(quiet\)   ` | Match `(quiet)`                                  |
 | `c:\\windows ` | Match `c:\windows`                               |
 
-Use `\` to search for these special characters: <br> `[ \ ^ $ . | ? * + ( ) { }`
+Use ` \ ` to search for these special characters: <br> `[ \ ^ $ . | ? * + ( ) { }`
 
 ### Alternatives
 
@@ -792,7 +790,7 @@ while (m.find()) {
 System.out.println(matches);
 ```
 
-## Regex in MySQL {.cols-2}
+## Regex in MySQL
 
 ### Functions
 

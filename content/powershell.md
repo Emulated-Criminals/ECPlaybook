@@ -385,5 +385,6 @@ New-Module -Name trevor -ScriptBlock {
 
 ## Also see
 
+### References
 - [Microsoft PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/samples/sample-scripts-for-administration?view=powershell-7.3)
-  _(learn.microsoft.com)_
+

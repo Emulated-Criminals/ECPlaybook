@@ -14,6 +14,7 @@ intro: |
   A useful collection of [Vim](http://www.vim.org/) 8.2 quick reference cheat sheets to help you learn vim editor faster.
 plugins:
   - copyCode
+iconSize: 30
 ---
 
 ## Getting Started
@@ -35,7 +36,7 @@ plugins:
 | [w] _/_ [b] | Next/Previous word |
 | [0] _/_ [$] | Start/End of line |
 | [g][g] _/_ [G] | First/Last line |
-| [<C-u>] _/_ [<C-d>] | Half-page up/down |
+
 
 ### Insert and Edit
 

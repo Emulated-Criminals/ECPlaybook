@@ -7,6 +7,7 @@ import { CheatsheetCard } from '@/components/cheatsheet-card'
 import { SearchTrigger } from '@/components/search/search-trigger'
 import { ArrowLeft} from 'lucide-react'
 import { FaLinkedin } from 'react-icons/fa'
+import { SiteFooter } from '@/components/site-footer'
 
 export async function generateStaticParams() {
   const cheatsheets = getAllCheatsheets()
@@ -154,6 +155,7 @@ export default async function CheatsheetPage({
           ))}
         </div>
       </main>
+      <SiteFooter />
     </div>
   )
 }

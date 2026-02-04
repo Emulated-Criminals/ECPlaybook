@@ -220,10 +220,10 @@ export function CheatsheetCard({ card }: CheatsheetCardProps) {
       }
       const icons: Record<string, string> = {
         note: 'ⓘ',
-        tip: '💡',
-        important: '❗',
+        tip: '*',
+        important: '!',
         warning: '⚠',
-        caution: '⛔',
+        caution: '!',
       }
       const title = titles[normalizedKind] || kind
       const icon = icons[normalizedKind] || 'ⓘ'

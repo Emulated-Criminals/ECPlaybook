@@ -294,8 +294,8 @@ nmap -sS --randomize-hosts -iL targets.txt -T2 --max-retries 1
 
 ### Advanced Scan {.col-span-2}
 
-| Options    | Protocol | Main Function     | Typical Use Case                               | 
-|------------|:---------|:------------------|:-----------------------------------------------|
+| Options    | Protocol | Main Function     | Typical Use Case                               |
+| ---------- | -------- | ----------------  | ---------------------------------------------- |
 | `-PR -sn`  | **ARP**  | Scan              | Discovering devices on the local network (LAN) |
 | `-PE -sn`  | **ICMP** | Echo Scan         | Checking if hosts are reachable (pinging)      |
 | `-PP -sn`  | **ICMP** | Timestamp Scan    | Gathering device time info (less common)       |
@@ -303,6 +303,8 @@ nmap -sS --randomize-hosts -iL targets.txt -T2 --max-retries 1
 | `-PS -sn`  | **TCP**  | SYN Ping Scan     | Detecting open TCP ports and live hosts        |
 | `-PA -sn ` | **TCP**  | ACK Ping Scan     | Identifying firewall rules and open ports      |
 | `-PU -sn`  | **ICMP** | Ping Scan         | Finding hosts with open UDP services           |
+
+
 
 
 ##  Reading Output
@@ -364,5 +366,5 @@ Do not use this tool without consent. For educational purposes, this example is 
 
 ## Also See
 
-
+### resources 
 - [Nmap](https://nmap.org/)

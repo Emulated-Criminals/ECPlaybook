@@ -564,9 +564,9 @@ See: [Margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
 
 See: [Overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
 
-## CSS Animation {.cols-5}
+## CSS Animation 
 
-### Shorthand {.col-span-5 .secondary}
+### Shorthand {.col-span-3}
 
 |       -       | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
 | ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
@@ -616,7 +616,7 @@ animation: bounce 300ms linear 2s infinite alternate-reverse forwards normal;
 .one('webkitAnimationEnd oanimationend msAnimationEnd animationend')
 ```
 
-## CSS Flexbox {.cols-2}
+## CSS Flexbox 
 
 ### Simple example
 
@@ -1337,7 +1337,7 @@ main {
 
 ## Also see 
 
-### See
+### References
 - [frontendmasters.com ](https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/)
 - [CSS selectors cheatsheet](https://frontend30.com/css-selectors-cheatsheet/)
 - [MDN: Using CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes)

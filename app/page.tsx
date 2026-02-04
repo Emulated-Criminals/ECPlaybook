@@ -4,6 +4,7 @@ import { getAllCheatsheets, getAllCategories } from '@/lib/markdown'
 import { resolveIconPath } from '@/lib/icon-path'
 import { SearchTrigger } from '@/components/search/search-trigger'
 import { FaLinkedin } from 'react-icons/fa'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function HomePage() {
   const cheatsheets = getAllCheatsheets()
@@ -128,6 +129,7 @@ export default function HomePage() {
           )}
         </div>
       </section>
+      <SiteFooter />
     </div>
   )
 }

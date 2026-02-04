@@ -103,7 +103,7 @@ Then insert shellcode into Line 46 of this code
 ### InstallUtil
 InstallUtil's is to be used when attempting bypass application whitelisting
 
-First you must generate specially crafted a C# payload  that contains your shellcode and upload the .cs file to the target host
+First you must generate a specially crafted C# payload  that contains your shellcode and upload the .cs file to the target host
 Recommendations for generating the file are to use this Git Repo: [WhiteListEvasion](https://github.com/khr0x40sh/WhiteListEvasion)
 
 Once the file is on the target host compile into a `.exe` file

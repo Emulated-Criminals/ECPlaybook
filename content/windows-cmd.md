@@ -194,6 +194,8 @@ icon: bash.svg
 | `bootrec /scanos`                                               | Scans for installations compatible with Windows and displays the entries that are currently not in the Boot Configuration Data store.            |
 | `bootrec /rebuildbcd`                                           | Scans for installations compatible with Windows and allows you to select the installations you want to add to the Boot Configuration Data store. |
 
-## Other
+## Also See
 
-- Also see : [Windows Official Documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
+### References
+ 
+ [Windows Official Documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)

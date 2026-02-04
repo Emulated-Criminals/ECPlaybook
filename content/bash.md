@@ -651,7 +651,7 @@ else
 fi
 ```
 
-## Bash Options {.cols-2}
+## Bash Options
 
 ### Options
 
@@ -693,7 +693,7 @@ shopt -s dotglob
 shopt -s globstar
 ```
 
-## Bash History {.cols-2}
+## Bash History
 
 ### Commands
 
@@ -904,7 +904,6 @@ fi
 - \*
 - \?
 
-{.cols-4 .marker-none}
 
 Escape these special characters with `\`
 
@@ -964,5 +963,3 @@ echo "${args[@]}"
 ```
 
 Put the arguments into an array and then append
-
-## Also see {.cols-1}

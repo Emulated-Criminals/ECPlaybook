@@ -220,7 +220,7 @@ Once turned on the next logon authentcation will begin populating the store
 
 ### Chromium Poison-The-Well Debugger KeyLoger 
 
-This attacks requires access to the host already through a c2 system. 
+This attack requires that you already have access to the host through a c2 system. 
 
 First you must poison the shortcut to make either Chrome or Edge start with a debugger port.
 

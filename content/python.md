@@ -18,10 +18,10 @@ plugins:
 
 ### Introduction
 
-- [Python](https://www.python.org/) _(python.org)_
-- [Python Document](https://docs.python.org/3/index.html) _(docs.python.org)_
-- [Learn X in Y minutes](https://learnxinyminutes.com/docs/python/) _(learnxinyminutes.com)_
-- [Regex in python](/regex#regex-in-python) _(cheatsheets.zip)_
+- [Python](https://www.python.org/) 
+- [Python Document](https://docs.python.org/3/index.html) 
+- [Learn X in Y minutes](https://learnxinyminutes.com/docs/python/) 
+- [Regex in python](/regex#regex-in-python)
 
 ### Hello World
 

@@ -221,7 +221,7 @@ Run a program "hidden"
 execute -f <exe> -H
 ```
 
-Clear all Applicaiton/System/Security Event Logs
+Clear all Application/System/Security Event Logs
 ```msf
 # Requires NT/System. Not OPSEC Safe
 clearenv
@@ -254,7 +254,7 @@ route flush
 ### Collection
 Take a Screenshot of the desktop
 ```msf
-secreenshot
+screenshot
 ```
 
 Creeper Mode: Watch the desktop

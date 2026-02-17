@@ -26,10 +26,10 @@ plugins:
 Basic shellcode runners require three things
 
 - **1** They require somewhere to put your shellcode
-- **2** They require something to execute your sehllcode
+- **2** They require something to execute your shellcode
 - **3** They require something to keep the process alive
 
-There are manny different methods to accomplishing this.
+There are many different methods to accomplishing this.
 
 This section **DOES NOT** discussion evasion techniques
 

@@ -202,7 +202,7 @@ List system-wide cron jobs
 ls -la /etc/cron*
 ```
 
-Search for credentials in convifuration files
+Search for credentials in configuration files
 ```bash
 # Searches for the term password.
 grep -Ri "password" /etc 2>/dev/null

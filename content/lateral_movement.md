@@ -15,20 +15,9 @@ plugins:
   - copyCode
 ---
 
-## SMB / PSExec
+### Intro
 
-psexec.py domain/user:pass@target  
-crackmapexec smb targets -u user -p pass --exec-method smbexec  
+## WIP 
+This section is WIP, an update will be published soon. 
 
-## WinRM
 
-evil-winrm -i target -u user -p pass  
-
-## RDP
-
-xfreerdp /u:user /p:pass /v:target  
-
-## SSH
-
-ssh user@target  
-ssh -i key user@target

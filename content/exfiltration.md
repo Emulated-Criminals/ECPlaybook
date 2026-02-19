@@ -158,7 +158,7 @@ DNS exfil via queries does not rely on a DNS response, but it does rely on DNS q
 In order for DNS exfiling to be possible you must first
 
 - **1** Control the domain you want to exfil. Example: `notaredteam.lol`
-- **2** You must control and monitor the authoritative DNS server for that domain, Meaning you must create a NS record for that domain.
+- **2** You must control and monitor the authoritative DNS server for that domain, meaning you must create a NS record for that domain.
 - **3** The target host must send DNS queries containing encoded data.
 
 What that looks like over the wire is thus:

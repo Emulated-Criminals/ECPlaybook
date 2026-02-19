@@ -29,7 +29,7 @@ If you are adding a new cheatsheet, also add an icon in `public/assets/icons/` w
 
 ## Playbook Markdown Format
 
-Each cheatsheet is a markdown file with front matter and a simple card layout. Plabooks are loaded dynamically using the 
+Each cheatsheet is a markdown file with front matter and a simple card layout. Playbooks are loaded dynamically using the 
 
 ### 1) Front Matter
 At the top of every markdown file, a Front Matter section is required to tell the application how the cheatsheet should be labeled and styled. 
@@ -44,7 +44,7 @@ The following fields are required
 
 `background:` this is the color of the card on the homepage. It must be given in [#XXXXXX] coloring format.
 
-`tags:` Tags are used to assit the serach function with findings a category of sorts. They are also displayed at the top of the playbook's page
+`tags:` Tags are used to assist the search function with findings a category of sorts. They are also displayed at the top of the playbook's page
 
 `categories:` This is the section in which the card on the main page will display. When creating a playbook please use an existing category. Multiple categories can be used if relevant to more than one. The card will display in both categories. Categories are case-sensitive. 
 
@@ -164,7 +164,7 @@ If you wish to render keyboard shortcuts as keys, add `{.shortcut}` to the heade
 
 Code blocks are supported normally through the use of the triple backtick (\`\`\`) for multi line code and syntax highlight or a single backtick (\`) for single in-line code highlighting 
 
-If your code is too long and overflows the view window a scrollview is automatically established. If you wish to disbale the scrollview you can add `{.wrap}` to wrap the code. 
+If your code is too long and overflows the view window a scrollview is automatically established. If you wish to disable the scrollview you can add `{.wrap}` to wrap the code. 
 
 ```
 \```bash {.wrap}
@@ -177,7 +177,7 @@ Example of wrapped code
 ![wrapped](readme_screens/Playbook-wrappedcode.png)
 
 
-The code block's syntax highlighter supports all of the major lanugages like: 
+The code block's syntax highlighter supports all of the major languages like: 
 
 - `c`
 - `python`

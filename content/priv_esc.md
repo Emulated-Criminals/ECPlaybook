@@ -130,7 +130,7 @@ evil-winrm -i ws01 -u administrator -H 32ed87bd5fdc5e9cba88547376818d4
 ```
 
 
-### Enviornment Variable Abuse {.row-span-2}
+### Environment Variable Abuse {.row-span-2}
 
 **$Path Interception**
 This is a "poison the well" type attack

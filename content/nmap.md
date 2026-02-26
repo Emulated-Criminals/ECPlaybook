@@ -269,19 +269,19 @@ See: [Subverting Firewalls & IDS](https://nmap.org/book/firewalls.html)
 
 ### Operation Usage Examples
 
-Wait 5 minutes between probes
-Fragment packet sto evade simple packet filters
-Append random data to avoid signature detection
-add additional delay between probes
+Wait 5 minutes between probes.
+Fragment packets to evade simple packet filters.
+Append random data to avoid signature detection.
+Add additional delay between probes.
 
 ```nmap
 nmap -sS -T0 -f --data-length 64 --scan-delay 10s 192.168.1.10
 ```
 
 
-Don't scan Sequentially
-Don't retry aggressively
-Look more like organic network traffic
+Don't scan sequentially.
+Don't retry aggressively.
+Look more like organic network traffic.
 
 ```nmap
 nmap -sS --randomize-hosts -iL targets.txt -T2 --max-retries 1

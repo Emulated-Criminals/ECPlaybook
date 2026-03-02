@@ -9,8 +9,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Playbook - A Quick Reference Cheatsheets for Offensive Security Practionaries',
-  description: 'Quick reference cheatsheets for developers',
+  title: 'Playbook - Quick Reference Cheatsheets for Offensive Security Practitioners',
+  description: 'Happy Hacking',
   icons: {
     icon: [
       {

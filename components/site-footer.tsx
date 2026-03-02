@@ -15,9 +15,9 @@ const toolLinks = [
     description: 'Our public repo of research & projects'
   },
   {
-    name: 'Playbook Home',
-    href: '/',
-    description: 'Browse all cheatsheets'
+    name: 'Playbook Github',
+    href: 'https://github.com/Emulated-Criminals/ECPlaybook',
+    description: 'Contribute to Playbook'
   }
 ]
 
